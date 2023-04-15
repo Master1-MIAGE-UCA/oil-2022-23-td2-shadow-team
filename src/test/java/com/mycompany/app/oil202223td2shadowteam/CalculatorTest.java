@@ -1,12 +1,14 @@
 package com.mycompany.app.oil202223td2shadowteam;
 
-import org.junit.Test;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import temp.Calculator;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalculatorTest {
 
@@ -34,13 +36,13 @@ public class CalculatorTest {
 
     @Test
     public void testAdd() {
-        Calculator calculator = mock(Calculator.class);
+        Calculator calculator = Mockito.mock(Calculator.class);
 
-        when(calculator.add(2, 3)).thenReturn(5);
+        Mockito.when(calculator.add(2, 3)).thenReturn(5);
 
         int result = calculator.add(2, 3);
 
-        verify(calculator).add(2, 3);
+        Mockito.verify(calculator).add(2, 3);
         assertEquals(5, result);
 
         LOGGER.info("\u001B[32m" + "All tests passed successfully!" + "\u001B[0m");
