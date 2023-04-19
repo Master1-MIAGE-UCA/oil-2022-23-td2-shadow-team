@@ -2,8 +2,11 @@ language: java
 jdk:
   - openjdk17
 
-install: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+cache:
+  directories:
+    - $HOME/.m2
+
+install: true
 
 script:
-  - mvn clean install
-  - mvn test
+  - mvn clean verify
