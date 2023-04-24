@@ -1,64 +1,58 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="CalculatorTest" time="0.697" errors="0" skipped="0">
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="CalculatorTest" time="1.134" tests="2" errors="0" skipped="0" failures="0">
   <properties>
-    <property name="idea.version" value="2022.3.1"/>
-    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
-    <property name="java.vm.version" value="17.0.6+10-LTS"/>
-    <property name="sun.boot.library.path" value="/home/aime_bertrand/amazon-corretto-17.0.6.10.1-linux-x64/lib"/>
-    <property name="maven.multiModuleProjectDirectory" value="/home/aime_bertrand/OIL"/>
-    <property name="java.vm.vendor" value="Amazon.com Inc."/>
-    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
-    <property name="guice.disable.misplaced.annotation.check" value="true"/>
-    <property name="path.separator" value=":"/>
-    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
-    <property name="user.country" value="US"/>
-    <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/home/aime_bertrand/OIL"/>
-    <property name="java.vm.compressedOopsMode" value="32-bit"/>
-    <property name="java.runtime.version" value="17.0.6+10-LTS"/>
-    <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="/tmp"/>
-    <property name="line.separator" value="
-"/>
-    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="os.name" value="Linux"/>
-    <property name="maven.ext.class.path" value="/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven-event-listener.jar"/>
-    <property name="classworlds.conf" value="/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven3/bin/m2.conf"/>
-    <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
-    <property name="jansi.passthrough" value="true"/>
-    <property name="maven.conf" value="/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven3/conf"/>
-    <property name="jdk.debug" value="release"/>
-    <property name="java.class.version" value="61.0"/>
-    <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
-    <property name="os.version" value="5.15.0-69-generic"/>
-    <property name="user.home" value="/home/aime_bertrand"/>
-    <property name="user.timezone" value="Europe/Paris"/>
-    <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="17"/>
-    <property name="user.name" value="aime_bertrand"/>
-    <property name="java.class.path" value="/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven3/boot/plexus-classworlds-2.6.0.jar:/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven3/boot/plexus-classworlds.license"/>
-    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/aime_bertrand/OIL/commun/target/test-classes:/home/aime_bertrand/OIL/commun/target/classes:/home/aime_bertrand/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar:/home/aime_bertrand/.m2/repository/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2.jar:/home/aime_bertrand/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/aime_bertrand/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/home/aime_bertrand/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/home/aime_bertrand/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/aime_bertrand/.m2/repository/org/apache/logging/log4j/log4j-core/2.20.0/log4j-core-2.20.0.jar:/home/aime_bertrand/.m2/repository/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar:/home/aime_bertrand/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar:/home/aime_bertrand/.m2/repository/org/mockito/mockito-core/5.2.0/mockito-core-5.2.0.jar:/home/aime_bertrand/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23.jar:/home/aime_bertrand/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23.jar:/home/aime_bertrand/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2022.3.1 install"/>
-    <property name="java.home" value="/home/aime_bertrand/amazon-corretto-17.0.6.10.1-linux-x64"/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/home/aime_bertrand/amazon-corretto-17.0.6.10.1-linux-x64/lib"/>
+    <property name="sun.java.command" value="/home/aime_bertrand/OIL/commun/target/surefire/surefirebooter16833878301188564665.jar /home/aime_bertrand/OIL/commun/target/surefire 2023-04-25T00-40-03_347-jvmRun1 surefire1594047457809050321tmp surefire_03432921024651615133tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/aime_bertrand/OIL/commun/target/test-classes:/home/aime_bertrand/OIL/commun/target/classes:/home/aime_bertrand/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.9.2/junit-jupiter-engine-5.9.2.jar:/home/aime_bertrand/.m2/repository/org/junit/platform/junit-platform-engine/1.9.2/junit-platform-engine-1.9.2.jar:/home/aime_bertrand/.m2/repository/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0.jar:/home/aime_bertrand/.m2/repository/org/junit/platform/junit-platform-commons/1.9.2/junit-platform-commons-1.9.2.jar:/home/aime_bertrand/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.9.2/junit-jupiter-api-5.9.2.jar:/home/aime_bertrand/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/aime_bertrand/.m2/repository/org/apache/logging/log4j/log4j-core/2.20.0/log4j-core-2.20.0.jar:/home/aime_bertrand/.m2/repository/org/apache/logging/log4j/log4j-api/2.19.0/log4j-api-2.19.0.jar:/home/aime_bertrand/.m2/repository/org/projectlombok/lombok/1.18.26/lombok-1.18.26.jar:/home/aime_bertrand/.m2/repository/org/mockito/mockito-core/5.2.0/mockito-core-5.2.0.jar:/home/aime_bertrand/.m2/repository/net/bytebuddy/byte-buddy/1.12.23/byte-buddy-1.12.23.jar:/home/aime_bertrand/.m2/repository/net/bytebuddy/byte-buddy-agent/1.12.23/byte-buddy-agent-1.12.23.jar:/home/aime_bertrand/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/aime_bertrand"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
-    <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="17.0.6"/>
-    <property name="native.encoding" value="UTF-8"/>
-    <property name="securerandom.source" value="file:/dev/./urandom"/>
-    <property name="java.vendor" value="Amazon.com Inc."/>
-    <property name="maven.home" value="/home/aime_bertrand/.local/share/JetBrains/Toolbox/apps/IDEA-U/ch-0/223.8214.52/plugins/maven/lib/maven3"/>
-    <property name="file.separator" value="/"/>
     <property name="java.version.date" value="2023-01-17"/>
-    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
-    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
-    <property name="sun.cpu.endian" value="little"/>
+    <property name="java.home" value="/home/aime_bertrand/amazon-corretto-17.0.6.10.1-linux-x64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/aime_bertrand/OIL/commun"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/home/aime_bertrand/OIL/commun/target/surefire/surefirebooter16833878301188564665.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.6+10-LTS"/>
+    <property name="user.name" value="aime_bertrand"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="5.15.0-69-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
     <property name="java.vendor.version" value="Corretto-17.0.6.10.1"/>
+    <property name="localRepository" value="/home/aime_bertrand/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-17/issues/"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="idea.version" value="2022.3.1"/>
+    <property name="java.version" value="17.0.6"/>
+    <property name="user.dir" value="/home/aime_bertrand/OIL/commun"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="17.0.6+10-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase classname="CalculatorTest" name="CalculatorTest.testAdditionner" time="0"/>
-  <testcase classname="CalculatorTest" name="CalculatorTest.testAdd" time="0.697"/>
+  <testcase name="testAdd" classname="CalculatorTest" time="0.801"/>
+  <testcase name="testAdditionner" classname="CalculatorTest" time="0.002"/>
 </testsuite>
