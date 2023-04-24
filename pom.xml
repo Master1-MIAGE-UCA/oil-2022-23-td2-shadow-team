@@ -8,11 +8,13 @@
 	<artifactId>yams</artifactId>
 	<version>1.0-SNAPSHOT</version>
 
+
 	<modules>
 		<module>commun</module>
 		<module>appariement</module>
 		<module>hebergeur</module>
 		<module>partie</module>
+		<module>proba</module>
 	</modules>
 
 	<packaging>pom</packaging>
@@ -108,6 +110,10 @@
 			<groupId>org.mockito</groupId>
 			<artifactId>mockito-core</artifactId>
 			<version>5.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
 	</dependencies>
