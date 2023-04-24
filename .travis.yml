@@ -10,3 +10,4 @@ install: true
 
 script:
   - mvn clean verify
+  - mvn test
