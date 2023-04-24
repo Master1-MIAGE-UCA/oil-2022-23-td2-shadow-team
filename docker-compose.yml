@@ -1,20 +1,29 @@
-version: "3.9"
+version: '3.9'
+
 services:
-    service1:
-        build:
-            context: .
-            dockerfile: ./Dockerfile
-        ports:
-            - "8080:8080"
-    service2:
-        build:
-            context: .
-            dockerfile: ./Dockerfile
-        ports:
-            - "8081:8080"
-    service3:
-        build:
-            context: .
-            dockerfile: ./Dockerfile
-        ports:
-            - "8082:8080"
+
+    serveur:
+        image: zeroo
+        container_name: appariement
+        networks:
+            testing_net:
+                ipv4_address: 172.28.0.253
+        depends_on:
+            - client
+
+    client:
+        image: zero
+        # container_name: hebergeur
+        environment:
+            - SERVER_IP=172.28.0.253
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.0.0/16

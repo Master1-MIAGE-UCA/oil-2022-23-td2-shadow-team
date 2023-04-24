@@ -1,6 +1,6 @@
 
 
-This project uses Java 17 and Maven 3.8.1.
+This project uses Java 17 and Maven 3.8.0
 Installation
 
 Before running this project, please make sure you have the following installed on your machine:
