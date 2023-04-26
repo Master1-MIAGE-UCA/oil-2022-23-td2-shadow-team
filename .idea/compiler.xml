@@ -9,11 +9,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="commun" />
         <module name="hebergeur" />
+        <module name="proba" />
         <module name="partie" />
         <module name="appariement" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="oil-2022-23-td2-shadow-team" target="17" />
       <module name="service1" target="17" />
       <module name="service2" target="17" />
       <module name="service3" target="17" />
@@ -21,10 +23,16 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="appariement" options="-parameters" />
+      <module name="commun" options="-parameters" />
+      <module name="hebergeur" options="-parameters" />
       <module name="oil-2022-23-td2-shadow-team" options="" />
+      <module name="partie" options="-parameters" />
+      <module name="proba" options="-parameters" />
       <module name="service1" options="-parameters" />
       <module name="service2" options="-parameters" />
       <module name="service3" options="-parameters" />
+      <module name="yams" options="-parameters" />
     </option>
   </component>
 </project>
