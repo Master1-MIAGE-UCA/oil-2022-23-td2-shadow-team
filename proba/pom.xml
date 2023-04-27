@@ -50,11 +50,15 @@
         </plugins>
     </build>
     <dependencies>
-    <dependency>
-        <groupId>yams</groupId>
-        <artifactId>appariement</artifactId>
-        <version>1.0-SNAPSHOT</version>
-    </dependency>
+        <dependency>
+            <groupId>yams</groupId>
+            <artifactId>commun</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

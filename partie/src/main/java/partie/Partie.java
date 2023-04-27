@@ -1,7 +1,6 @@
 package partie;
 
-import hebergeur.hebergeur;
-import appariement.appariement;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.SpringApplication;
@@ -15,8 +14,6 @@ public class Partie {
     public static void main(String[] args) {
 
         SpringApplication.run(Partie.class, args);
-        appariement.main(args);
-        hebergeur.main(args);
         logger.info("Application started. Lessgo ! ");
 
     }

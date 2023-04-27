@@ -41,7 +41,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>appariement.appariement</mainClass>
+                    <mainClass>appariement.Appariement</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -52,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>appariement.appariement</mainClass>
+                            <mainClass>appariement.Appariement</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
