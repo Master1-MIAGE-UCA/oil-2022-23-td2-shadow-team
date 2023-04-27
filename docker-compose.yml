@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+
+    appariement:
+        image: yams:appariement
+
+    hebergeur:
+        image: yams:hebergeur
+
