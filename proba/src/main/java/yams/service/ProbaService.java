@@ -12,7 +12,7 @@ public class ProbaService {
         return Optional.of(0.0);
     }
     public Optional<Double> full(){
-        return Optional.of(0.0);
+        return Optional.of(paire() + brelan().get());
     }
     public Optional<Double> smallStraight(){
         return Optional.of(0.0);
