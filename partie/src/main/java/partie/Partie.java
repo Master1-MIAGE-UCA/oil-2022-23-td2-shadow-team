@@ -4,15 +4,17 @@ package partie;
 import commun.Coup;
 import commun.EtatDuJeu;
 import commun.IJoueur;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
+@Component
 public class Partie {
 
     EtatDuJeu etat = new EtatDuJeu();
-    ArrayList<IJoueur> IJoueurs = new ArrayList<>();
-    public void addIJoueur(IJoueur j) {
-        IJoueurs.add(j);
+    ArrayList<IJoueur> joueurs = new ArrayList<>();
+    public void addJoueur(IJoueur j) {
+        joueurs.add(j);
     }
 
     /**
@@ -23,11 +25,11 @@ public class Partie {
         System.out.println("partie> début de la partie");
         while (! etat.isFini()) {
             System.out.println("partie> début de la manche "+etat.getNbTours());
-            for(IJoueur j : IJoueurs) {
+            for(IJoueur j : joueurs) {
                 System.out.println("partie> c'est le tour de "+j.getName());
                 Coup c = j.jouer(etat);
                 // vérifier et résoudre et afficher le coup
-                // on pourrait vérifier que le IJoueur de c a le même nom que le IJoueur de j
+                // on pourrait vérifier que le joueur de c a le même nom que le joueur de j
                 System.out.println("partie> "+c);
                 System.out.println("partie> fin du tour de "+j.getName());
             }
@@ -37,4 +39,3 @@ public class Partie {
         System.out.println("partie> fin de la partie");
     }
 }
-

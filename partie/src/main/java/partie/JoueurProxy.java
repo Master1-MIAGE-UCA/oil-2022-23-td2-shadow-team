@@ -1,4 +1,4 @@
-package appariement;
+package partie;
 
 import commun.Coup;
 import commun.EtatDuJeu;

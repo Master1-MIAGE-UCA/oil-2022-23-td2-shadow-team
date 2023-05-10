@@ -16,17 +16,25 @@ public class Appariement {
     @Bean
     public CommandLineRunner scriptLancement(Lancement lancement) {
         return args -> {
-            lancement.preparerDemarrage();
             // pas de fin car il n'y a un webserveur de lancer
-            if (args.length >= 1) {
-                for(String port : args) {
-                    String url = "http://localhost:"+port;
-                    lancement.rechercherJoueur(url);
 
+            if (args.length >= 1) {
+                // 1er args : l'url de partie
+                String urlPartie = "http://localhost:"+args[0];
+                lancement.setAddUrlPartie(urlPartie);
+
+                // les autres args : les urls des joueurs
+                if (args.length >= 2) {
+                    for(int i = 1; i < args.length; i++) {
+                        String port = args[i];
+                        String url = "http://localhost:"+port;
+                        lancement.rechercherJoueur(url);
+
+                    }
+                    lancement.demarrer();
                 }
-                lancement.demarrer();
             }
-            System.out.println("fin");
+
         };
     }
 
