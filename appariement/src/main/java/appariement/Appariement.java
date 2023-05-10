@@ -1,42 +1,32 @@
 package appariement;
 
 
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
-@SpringBootApplication
+import java.util.ArrayList;
+
+@Component
 public class Appariement {
-    public static void main(String[] args) {
-        // les traces sont là juste pour montrer le déroulement et le lancement
-        SpringApplication.run(Appariement.class, args);
+
+    /// appariement ne fait plus de requete... plus besoin de webclient ni de builder (en tout cas en l'état)
+
+    private ArrayList<String> parties = new ArrayList<>();
+    private ArrayList<String> joueurs = new ArrayList<>();
+
+    public Appariement() {
     }
 
-    @Bean
-    public CommandLineRunner scriptLancement(Lancement lancement) {
-        return args -> {
-            // pas de fin car il n'y a un webserveur de lancer
-
-            if (args.length >= 1) {
-                // 1er args : l'url de partie
-                String urlPartie = "http://localhost:"+args[0];
-                lancement.setAddUrlPartie(urlPartie);
-
-                // les autres args : les urls des joueurs
-                if (args.length >= 2) {
-                    for(int i = 1; i < args.length; i++) {
-                        String port = args[i];
-                        String url = "http://localhost:"+port;
-                        lancement.rechercherJoueur(url);
-
-                    }
-                    lancement.demarrer();
-                }
-            }
-
-        };
+    public String addJoueur(String urlJ) {
+        joueurs.add(urlJ);
+        if (parties.size() > 0) return parties.get(0); // ici gestion des parties à améliorer
+        else return "";
     }
 
 
+    public String[] addPartie(String partieUrl) {
+        parties.add(partieUrl);
+        if (joueurs.size() > 0) return joueurs.toArray(new String[joueurs.size()]); // ici gestion des joueurs à améliorer
+        // ne pas renvoyer un joueur qui fait 2 partie en meme temps
+        else return null;
+    }
 }

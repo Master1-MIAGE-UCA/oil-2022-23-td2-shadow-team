@@ -18,5 +18,10 @@ public class EtatDuJeu {
         return fini;
     }
 
+    @Override
+    public String toString() {
+        return "EtatDuJeu{" + "nbTours=" + nbTours + ", fini=" + fini + '}';
+    }
+
 
 }
