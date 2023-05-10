@@ -1,20 +1,40 @@
 package partie;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import commun.Coup;
+import commun.EtatDuJeu;
+import commun.IJoueur;
 
-@SpringBootApplication
+import java.util.ArrayList;
+
 public class Partie {
 
-    private static final Logger logger = LogManager.getLogger(Partie.class);
+    EtatDuJeu etat = new EtatDuJeu();
+    ArrayList<IJoueur> IJoueurs = new ArrayList<>();
+    public void addIJoueur(IJoueur j) {
+        IJoueurs.add(j);
+    }
 
-    public static void main(String[] args) {
-
-        SpringApplication.run(Partie.class, args);
-        logger.info("Application started. Lessgo ! ");
-
+    /**
+     * code à mieux structurer, ne pas mettre les sout ici (séparer vue / modèle)
+     * passer plus de paramètre pour jouer, etc.
+     */
+    public void demarrer() {
+        System.out.println("partie> début de la partie");
+        while (! etat.isFini()) {
+            System.out.println("partie> début de la manche "+etat.getNbTours());
+            for(IJoueur j : IJoueurs) {
+                System.out.println("partie> c'est le tour de "+j.getName());
+                Coup c = j.jouer(etat);
+                // vérifier et résoudre et afficher le coup
+                // on pourrait vérifier que le IJoueur de c a le même nom que le IJoueur de j
+                System.out.println("partie> "+c);
+                System.out.println("partie> fin du tour de "+j.getName());
+            }
+            System.out.println("partie> fin de la manche "+etat.getNbTours());
+            etat.setNbTours(etat.getNbTours()+1);
+        }
+        System.out.println("partie> fin de la partie");
     }
 }
+
