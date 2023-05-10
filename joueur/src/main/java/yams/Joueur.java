@@ -22,4 +22,9 @@ public class Joueur extends IJoueur {
         System.out.println(getName() + "> je joue " + val);
         return new Coup("valeur aléatoire " + val, this);
     }
+
+    public static void main(String[] args) {
+        Joueur j = new Joueur("joueur1");
+        System.out.println(j.getName());
+    }
 }

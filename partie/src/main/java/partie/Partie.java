@@ -36,5 +36,9 @@ public class Partie {
         }
         System.out.println("partie> fin de la partie");
     }
+
+    public static void main(String[] args) {
+
+    }
 }
 

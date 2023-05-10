@@ -3,8 +3,6 @@
 git,4/6/46f1a0bd5592a2f9244ca321b129902a06b53e03
 4
 mvnw,5/d/5d837c4ed85ecaaf932c506e80ff5d7b9f3d590d
-B
-docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
 X
 (commun/src/test/java/CalculatorTest.java,2/a/2ab221363f72cbf94ca2282fbdbbc8db54354c50
 8
@@ -13,25 +11,7 @@ X
 OIL-BILAN01.md,4/d/4d19449d204f7a34c0bb352ad519e8dcd30d1315
 S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
->
-partie/pom.xml,c/1/c144f7bd9f03c01df9826bd120d8772eea97f224
 =
 proba/pom.xml,1/d/1d0a2c6313fb8e159e45c38bd76098159e10af9a
-[
-+commun/src/main/java/commun/Calculator.java,0/8/08056b1e9806d0945cf43025ef757c9782b1a0bb
-C
-appariement/pom.xml,b/0/b0f0d43aa48f9a9f712828f0e5d2db765094742c
-f
-6appariement/src/main/java/appariement/Appariement.java,7/b/7bf05385b11d240d0ef968f70cadc12a62c8ec00
-`
-0hebergeur/src/main/java/hebergeur/Hebergeur.java,7/0/70faaa572470458ce9c4b66983d47f2a6e82a142
 A
 hebergeur/pom.xml,c/0/c017774a9cf772219da2246249fecf3d654f8e9f
-U
-%joueur/src/main/java/yams/Joueur.java,4/0/40bab6cd655f73bc2cdf4c73fee458c4fa6170ef
-S
-#proba/src/main/java/yams/Proba.java,8/a/8ad3fa1bb30a65caee34dbec2fb1acd8222fb25a
-Z
-*commun/src/main/java/commun/EtatDuJeu.java,2/a/2aa56d0ab2364f24b71557ba4b4ae506c844c50b
-X
-(commun/src/main/java/commun/IJoueur.java,8/7/8759a5b0f9b13f8a7e5a77f471938cc1581bb450
