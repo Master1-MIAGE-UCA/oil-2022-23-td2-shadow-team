@@ -13,5 +13,21 @@ S
 #.idea/sonarlint/issuestore/index.pb,9/f/9fe84ebb15faf917b7def6236dba604453cc61e0
 =
 proba/pom.xml,1/d/1d0a2c6313fb8e159e45c38bd76098159e10af9a
-A
-hebergeur/pom.xml,c/0/c017774a9cf772219da2246249fecf3d654f8e9f
+;
+.travis.yml,d\e\dea01dd89a3b602828e630677fde5d77c06441c8
+B
+docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
+S
+#proba/src/main/java/yams/Proba.java,8\a\8ad3fa1bb30a65caee34dbec2fb1acd8222fb25a
+[
++commun/src/main/java/commun/Calculator.java,0\8\08056b1e9806d0945cf43025ef757c9782b1a0bb
+F
+appariement/Dockerfile,3\a\3ac995834ba3b5a535a304d08303b60c183f11e5
+U
+%commun/src/main/java/commun/Coup.java,e\3\e323749d450370067065faaa4136f028792dac25
+Z
+*commun/src/main/java/commun/EtatDuJeu.java,2\a\2aa56d0ab2364f24b71557ba4b4ae506c844c50b
+X
+(commun/src/main/java/commun/IJoueur.java,8\7\8759a5b0f9b13f8a7e5a77f471938cc1581bb450
+>
+joueur/pom.xml,6\5\65bad8c6d2423a57c82c500aa7bc983512496b58

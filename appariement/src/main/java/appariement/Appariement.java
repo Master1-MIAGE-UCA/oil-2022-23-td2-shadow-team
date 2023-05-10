@@ -16,8 +16,17 @@ public class Appariement {
     @Bean
     public CommandLineRunner scriptLancement(Lancement lancement) {
         return args -> {
-            lancement.demarrer();
+            lancement.preparerDemarrage();
             // pas de fin car il n'y a un webserveur de lancer
+            if (args.length >= 1) {
+                for(String port : args) {
+                    String url = "http://localhost:"+port;
+                    lancement.rechercherJoueur(url);
+
+                }
+                lancement.demarrer();
+            }
+            System.out.println("fin");
         };
     }
 

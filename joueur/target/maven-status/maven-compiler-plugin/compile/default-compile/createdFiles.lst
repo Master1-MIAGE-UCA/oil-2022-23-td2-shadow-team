@@ -1,1 +1,3 @@
-yams\Joueur.class
+yams\JoueurApplication.class
+yams\JoueurConcret.class
+yams\JoueurWebController.class

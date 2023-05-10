@@ -12,8 +12,10 @@
 
 
 
+
     <artifactId>partie</artifactId>
     <version>1.0-SNAPSHOT</version>
+
 
 
     <build>
@@ -41,33 +43,14 @@
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
 
         </plugins>
     </build>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-logging</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
             <groupId>yams</groupId>
-            <artifactId>hebergeur</artifactId>
+            <artifactId>commun</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
