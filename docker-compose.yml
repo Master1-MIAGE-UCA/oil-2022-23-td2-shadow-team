@@ -1,10 +1,56 @@
-version: '3.9'
+version: '3'
 
 services:
 
     appariement:
-        image: yams:appariement
+        image: webclient:appariement
+        container_name: appariement
+        networks:
+            testing_net:
+                ipv4_address: 172.28.0.253
 
-    hebergeur:
-        image: yams:hebergeur
 
+    partie:
+        image: webclient:partie
+        container_name: partie
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - appariement
+
+    michel:
+        image: webclient:joueur
+        container_name: michel
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+            - NOM=MICHEL
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - partie
+
+
+    joueur2:
+        image: webclient:joueur
+        container_name: greg
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+            - NOM=G.
+            - LANCEMENT=true
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - michel
+
+
+networks:
+    testing_net:
+        ipam:
+            driver: default
+            config:
+                - subnet: 172.28.0.0/16

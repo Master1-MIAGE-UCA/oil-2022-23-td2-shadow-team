@@ -19,7 +19,6 @@
     <modules>
         <module>commun</module>
         <module>appariement</module>
-        <module>hebergeur</module>
         <module>partie</module>
         <module>proba</module>
         <module>joueur</module>
