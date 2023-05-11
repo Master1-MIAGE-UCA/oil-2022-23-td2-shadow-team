@@ -15,6 +15,7 @@ services:
         container_name: partie
         environment:
             - SERVER_IP=http://172.28.0.253:8080/
+            - SERVER_PORT=8090
         networks:
             testing_net:
             #  ipv4_address: 172.28.0.3
@@ -27,6 +28,7 @@ services:
         environment:
             - SERVER_IP=http://172.28.0.253:8080/
             - NOM=MICHEL
+            - SERVER_PORT=8081
         networks:
             testing_net:
             #  ipv4_address: 172.28.0.3
@@ -41,6 +43,7 @@ services:
             - SERVER_IP=http://172.28.0.253:8080/
             - NOM=G.
             - LANCEMENT=true
+            - SERVER_PORT=8082
         networks:
             testing_net:
             #  ipv4_address: 172.28.0.3

@@ -1,5 +1,6 @@
 package yams;
 
+import commun.Calculator;
 import commun.Coup;
 import commun.EtatDuJeu;
 import commun.IJoueur;

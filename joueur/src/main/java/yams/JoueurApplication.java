@@ -11,9 +11,12 @@ import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 import java.net.InetAddress;
+import java.security.SecureRandom;
 
 @SpringBootApplication
 public class JoueurApplication {
+
+    SecureRandom rand = new SecureRandom();
 
     @Value("${server.port}")
     private int port;
@@ -26,12 +29,13 @@ public class JoueurApplication {
     @Bean
     public CommandLineRunner scriptLancement(JoueurConcret joueur, WebClient.Builder builder) {
         return args -> {
+            System.out.println(args.length);
             String name = "nom par defaut";
-            if (args.length > 0) name = args[0];
+            if (args.length > 0) name = args[0]+" "+rand.nextInt(1000);
             joueur.setName(name);
             if (args.length > 1) {
                 // args[1] c'est l'uril d'appariement, en version courte ici pour simplifier la ligne de commande
-                String urlApp = "http://localhost:"+args[1];
+                String urlApp = args[1];
                 WebClient clientApp = builder.baseUrl(urlApp).build();
 
                 String myIp = InetAddress.getLocalHost().getHostAddress();
