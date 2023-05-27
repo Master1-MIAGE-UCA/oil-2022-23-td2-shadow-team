@@ -1,7 +1,9 @@
 package commun;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
 
 public class ScoreJoueur {
     private int totalScore;
@@ -38,6 +40,17 @@ public class ScoreJoueur {
         }
         return categoriesUsed.get(categorie);
     }
+
+    public void setcalculScore(List<Integer> des)
+    {
+        RegleYams regle = new RegleYams();
+
+        // a faire
+
+
+
+    }
+
 
 }
 

@@ -13,6 +13,8 @@ public class IJoueur {
     }
 
     public Coup jouer(EtatDuJeu etat) {
-        return null;
+        Coup coup = new Coup("lancer", this);
+        coup.lancer();
+        return coup;
     }
 }

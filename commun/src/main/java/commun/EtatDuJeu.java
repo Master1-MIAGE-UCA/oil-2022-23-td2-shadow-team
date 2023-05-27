@@ -1,5 +1,6 @@
 package commun;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -9,9 +10,8 @@ public class EtatDuJeu {
     boolean fini = false;
 
 
-    private Map<IJoueur, ScoreJoueur> scores; // definire une map pour le score
 
-    private RegleYams yams;
+    private Map<IJoueur, ScoreJoueur> scores; // definire une map pour le score
 
 
 
