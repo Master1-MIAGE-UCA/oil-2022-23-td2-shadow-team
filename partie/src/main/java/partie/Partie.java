@@ -22,6 +22,7 @@ public class Partie {
      * passer plus de paramètre pour jouer, etc.
      */
     public void demarrer() {
+
         System.out.println("partie> début de la partie");
         while (! etat.isFini()) {
             System.out.println("partie> début de la manche "+etat.getNbTours());

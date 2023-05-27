@@ -1,4 +1,4 @@
-commun/Coup.class
-commun/Calculator.class
-commun/EtatDuJeu.class
-commun/IJoueur.class
+commun\Calculator.class
+commun\IJoueur.class
+commun\EtatDuJeu.class
+commun\Coup.class

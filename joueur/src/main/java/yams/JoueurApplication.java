@@ -28,6 +28,7 @@ public class JoueurApplication {
 
     @Bean
     public CommandLineRunner scriptLancement(JoueurConcret joueur, WebClient.Builder builder) {
+       // System.out.println("Le port du serveur configuré est: " + port);
         return args -> {
             System.out.println(args.length);
             String name = "nom par defaut";

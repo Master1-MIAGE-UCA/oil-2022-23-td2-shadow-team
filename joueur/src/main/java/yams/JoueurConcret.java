@@ -23,7 +23,7 @@ public class JoueurConcret extends IJoueur {
     public Coup jouer(EtatDuJeu etat) {
         int val = rand.nextInt(100);
         System.out.println(getName()+"> je joue "+val);
-        return new Coup("valeur aléatoire "+val, this);
+        return new Coup("Coup aléatoire "+val, this);
     }
 
 }
