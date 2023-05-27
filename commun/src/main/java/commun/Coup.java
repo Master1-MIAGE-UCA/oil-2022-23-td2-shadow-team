@@ -8,7 +8,7 @@ public class Coup {
     String unAttributPourQueLeJSONNeSoitPasVide = "";
     IJoueur IJoueur;
 
-    private RegleYams yams;
+    private RegleYams yams = new RegleYams();;
 
 
     private List<Integer> des = new ArrayList<>(); // définition de la liste des dés
@@ -21,7 +21,6 @@ public class Coup {
     public Coup(String s, IJoueur j) {
         setUnAttributPourQueLeJSONNeSoitPasVide(s);
         setIJoueur(j);
-        yams = new RegleYams();
 
     }
 
@@ -52,7 +51,6 @@ public class Coup {
         }
         System.out.println("Les dés après le lancer : " + obtenirRepresentationDes());
         System.out.println("Catégories possibles : " + yams.determinerCategories(des));
-
     }
 
     public void relancer(int a) {

@@ -32,6 +32,7 @@ public class JoueurApplication {
         return args -> {
             System.out.println(args.length);
             String name = "nom par defaut";
+            System.out.println("argument:"+args);
             if (args.length > 0) name = args[0]+" "+rand.nextInt(1000);
             joueur.setName(name);
             if (args.length > 1) {

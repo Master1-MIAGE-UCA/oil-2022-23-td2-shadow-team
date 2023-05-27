@@ -19,11 +19,23 @@ public class JoueurConcret extends IJoueur {
         setName("sans nom");
     }
 
-
+/*
     public Coup jouer(EtatDuJeu etat) {
         int val = rand.nextInt(100);
         System.out.println(getName()+"> je joue "+val);
-        return new Coup("Coup aléatoire "+val, this);
+        return new Coup("valeur aléatoire "+val, this);
     }
+
+
+ */
+
+
+    public Coup jouer(EtatDuJeu etat) {
+        Coup coup = new Coup("lancer", this);
+        coup.lancer();
+        return coup;
+    }
+
+
 
 }

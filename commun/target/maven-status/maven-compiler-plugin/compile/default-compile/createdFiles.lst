@@ -1,4 +1,6 @@
+commun\RegleYams.class
 commun\Calculator.class
 commun\IJoueur.class
+commun\ScoreJoueur.class
 commun\EtatDuJeu.class
 commun\Coup.class
