@@ -8,6 +8,7 @@ public class EtatDuJeu {
     int nbTours = 1;
     boolean fini = false;
 
+
     private Map<IJoueur, ScoreJoueur> scores; // definire une map pour le score
 
     private RegleYams yams;

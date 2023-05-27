@@ -38,5 +38,6 @@ public class ScoreJoueur {
         }
         return categoriesUsed.get(categorie);
     }
+
 }
 
