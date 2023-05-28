@@ -47,10 +47,10 @@ public class ScoreJoueur {
 
         // a faire
 
-
-
     }
-
+    public   Map<String, Boolean> getListofCategorieused(){
+        return this.categoriesUsed;
+    }
 
 }
 

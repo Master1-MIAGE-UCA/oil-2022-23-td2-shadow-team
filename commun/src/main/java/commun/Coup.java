@@ -44,6 +44,13 @@ public class Coup {
         return IJoueur;
     }
 
+    public List<Integer> getDes() { return des; }
+
+    public List<String> getCategories()
+    {
+        return  yams.determinerCategories(des);
+    }
+
     public void lancer() {
         for (int i = 0; i < 5; i++) {
             int chiffre = (int) (Math.random() * 6) + 1; // Générer un chiffre aléatoire entre 1 et 6
@@ -60,7 +67,6 @@ public class Coup {
         }
         System.out.println("Les dés après le lancer : " + obtenirRepresentationDes());
         System.out.println("Catégories possibles : " + yams.determinerCategories(des));
-
 
     }
 

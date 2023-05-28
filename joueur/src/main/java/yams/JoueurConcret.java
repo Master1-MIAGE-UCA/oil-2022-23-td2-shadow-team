@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 
 import java.security.SecureRandom;
+import java.util.List;
 import java.util.Random;
 
 @Component
@@ -33,6 +34,12 @@ public class JoueurConcret extends IJoueur {
     public Coup jouer(EtatDuJeu etat) {
         Coup coup = new Coup("lancer", this);
         coup.lancer();
+        List<Integer> des=coup.getDes();
+        List<String> MesChoixPoussibles = coup.getCategories();
+
+
+
+
         return coup;
     }
 

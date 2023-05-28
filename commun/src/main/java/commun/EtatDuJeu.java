@@ -8,9 +8,7 @@ public class EtatDuJeu {
 
     int nbTours = 1;
     boolean fini = false;
-
-
-
+    
     private Map<IJoueur, ScoreJoueur> scores; // definire une map pour le score
 
 
@@ -24,7 +22,7 @@ public class EtatDuJeu {
     }
 
     public boolean isFini() {
-        fini = (nbTours > 3);
+        fini = (nbTours > 13);
         return fini;
     }
 
