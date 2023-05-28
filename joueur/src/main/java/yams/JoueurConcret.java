@@ -1,9 +1,6 @@
 package yams;
 
-import commun.Calculator;
-import commun.Coup;
-import commun.EtatDuJeu;
-import commun.IJoueur;
+import commun.*;
 import org.springframework.stereotype.Component;
 
 
@@ -11,13 +8,20 @@ import java.security.SecureRandom;
 import java.util.List;
 import java.util.Random;
 
+
+
+
 @Component
 public class JoueurConcret extends IJoueur {
     Random rand = new SecureRandom();
+    private ScoreJoueur scores; // definire une map pour le score
+
 
 
     public JoueurConcret() {
         setName("sans nom");
+        this.scores = new ScoreJoueur(); // Initialiser le score pour chaque joueur
+
     }
 
 /*
@@ -31,6 +35,20 @@ public class JoueurConcret extends IJoueur {
  */
 
 
+    public int getScore() {
+        return scores.getTotalScore();
+    }
+
+    public void setScoreCategorie(String categorie, int score) {
+        scores.setScoreCategorie(categorie, score);
+    }
+    public ScoreJoueur getVariableScrore()
+    {
+        return this.scores;
+    }
+
+
+
     public Coup jouer(EtatDuJeu etat) {
         Coup coup = new Coup("lancer", this);
         coup.lancer();
@@ -38,10 +56,11 @@ public class JoueurConcret extends IJoueur {
         List<String> MesChoixPoussibles = coup.getCategories();
 
 
-
-
         return coup;
     }
+
+
+
 
 
 
