@@ -1,5 +1,6 @@
 package commun;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +34,17 @@ public class ScoreJoueur {
         categoriesUsed.put(categorie, true);
         totalScore += score;
     }
+
+    public List<String> getCategoriesDisponibles(List<String> MesChoixPoussibles) {
+        List<String> categoriesDisponibles = new ArrayList<>();
+        for (String categorie : MesChoixPoussibles) {
+            if (categoriesUsed.containsKey(categorie) && !categoriesUsed.get(categorie)) {
+                categoriesDisponibles.add(categorie);
+            }
+        }
+        return categoriesDisponibles;
+    }
+
 
     public boolean isCategorieUsed(String categorie) {
         if (!categoriesUsed.containsKey(categorie)) {

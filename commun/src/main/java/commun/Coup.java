@@ -1,7 +1,9 @@
 package commun;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Coup {
 
@@ -9,7 +11,7 @@ public class Coup {
     IJoueur IJoueur;
 
     private RegleYams yams = new RegleYams();;
-
+    Random rand = new SecureRandom();
 
     private List<Integer> des = new ArrayList<>(); // définition de la liste des dés
 
@@ -60,14 +62,15 @@ public class Coup {
         System.out.println("Catégories possibles : " + yams.determinerCategories(des));
     }
 
-    public void relancer(int a) {
-        if (a >= 1 && a < des.size()+1) {
-            int chiffre = (int) (Math.random() * 6) + 1; // Générer un nouveau chiffre aléatoire entre 1 et 6
-            des.set(a-1 , chiffre); // Remplacer le chiffre du dé numéro a par le nouveau chiffre
+    public void relancer(List<Integer> listeARelancer) {
+        for (int i = 0; i < des.size(); i++) {
+            if (listeARelancer.get(i) == 1) {
+                int chiffre = (int) (Math.random() * 6) + 1; // Générer un nouveau chiffre aléatoire entre 1 et 6
+                des.set(i , chiffre); // Remplacer le chiffre du dé numéro i par le nouveau chiffre
+            }
         }
         System.out.println("Les dés après le lancer : " + obtenirRepresentationDes());
         System.out.println("Catégories possibles : " + yams.determinerCategories(des));
-
     }
 
     public String obtenirRepresentationDes() {
@@ -85,6 +88,14 @@ public class Coup {
         representation.append(" ]");
 
         return representation.toString();
+    }
+    public  List<Integer> ListeARelancer()
+    {
+        List<Integer> listeARelancer = new ArrayList<>();
+        for(int i = 0; i < 5; i++) {
+            listeARelancer.add(rand.nextInt(2)); // ajout d'un chiffre aléatoire qui est soit 0 soit 1
+        }
+        return listeARelancer;
     }
 
 

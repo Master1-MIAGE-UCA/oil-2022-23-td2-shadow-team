@@ -54,6 +54,26 @@ public class JoueurConcret extends IJoueur {
         coup.lancer();
         List<Integer> des=coup.getDes();
         List<String> MesChoixPoussibles = coup.getCategories();
+        List<String> MesChoixDisponibles = this.scores.getCategoriesDisponibles(MesChoixPoussibles);// je filtre avec mes disponibile dans le tableau de score
+        List<Integer> listeARelancer = coup.ListeARelancer();
+        int nombreLancers = 1; // compte le premier lancer hors de la boucle
+       //yams 3 lance en cas ou il y'as pas le choix
+        while (nombreLancers < 3 && MesChoixDisponibles.size() == 0) {
+            coup.relancer(listeARelancer);
+            des = coup.getDes();
+            MesChoixPoussibles = coup.getCategories();
+            MesChoixDisponibles = this.scores.getCategoriesDisponibles(MesChoixPoussibles); // je filtre avec mes disponibile dans le tableau de score
+            nombreLancers++;
+            listeARelancer.clear(); // vider la liste pour la prochaine relance
+            listeARelancer = coup.ListeARelancer();
+        }
+        if (MesChoixDisponibles.size() == 0)
+        {
+
+        }
+        else {
+
+        }
 
 
         return coup;
