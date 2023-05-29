@@ -102,5 +102,15 @@ public class ScoreJoueur {
         }
     }
 
+    public List<String> getCategoriesNonUtilisees() {
+        List<String> categoriesNonUtilisees = new ArrayList<>();
+        for (String categorie : this.categoriesUsed.keySet()) {
+            if (!this.isCategorieUsed(categorie)) {
+                categoriesNonUtilisees.add(categorie);
+            }
+        }
+        return categoriesNonUtilisees;
+    }
+
 }
 

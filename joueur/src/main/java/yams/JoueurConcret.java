@@ -69,12 +69,23 @@ public class JoueurConcret extends IJoueur {
         }
         if (MesChoixDisponibles.size() == 0)
         {
+            //int score = calculerScorePourCategorie(categorieChoisie, des);
+            this.scores.setScoreCategorie(categorieChoisie, 0);
 
 
         }
         else {
+            String categorieChoisie = MesChoixDisponibles.get(rand.nextInt(MesChoixDisponibles.size()));
+            //int score = calculerScorePourCategorie(categorieChoisie, des);
 
+            // Mettre à jour le score dans la catégorie choisie
+            this.scores.setScoreCategorie(categorieChoisie, 10);
+            //affiche de choix
+            System.out.println(this.getName() + " a choisi la catégorie " + categorieChoisie + " avec un score de " + 10 + ".");
         }
+
+        System.out.println("Grille de Score");
+        System.out.println(this.scores.affichagetableauScore());
 
         return coup;
     }
