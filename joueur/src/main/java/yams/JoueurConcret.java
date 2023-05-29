@@ -84,9 +84,9 @@ public class JoueurConcret extends IJoueur {
         }
         else {
             String categorieChoisie = MesChoixDisponibles.get(rand.nextInt(MesChoixDisponibles.size()));
-            //int score = calculerScorePourCategorie(categorieChoisie, des);
+            int score = this.scores.calculerScorePourCategorie(categorieChoisie, des);
             // Mettre à jour le score dans la catégorie choisie
-            this.scores.setScoreCategorie(categorieChoisie, 10);
+            this.scores.setScoreCategorie(categorieChoisie, score);
             //affiche de choix
             System.out.println(this.getName() + " a choisi la catégorie " + categorieChoisie + " avec un score de " + 10 + ".");
         }

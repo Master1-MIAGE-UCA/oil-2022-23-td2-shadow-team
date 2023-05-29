@@ -1,9 +1,6 @@
 package commun;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public class ScoreJoueur {
@@ -112,6 +109,60 @@ public class ScoreJoueur {
         }
         return categoriesNonUtilisees;
     }
+
+    public int calculerScorePourCategorie(String categorieChoisie, List<Integer> des) {
+        int score = 0;
+        switch (categorieChoisie) {
+            case "yams":
+                score = 50;
+                break;
+            case "grandeSuite":
+                score = 40;
+                break;
+            case "petiteSuite":
+                score = 30;
+                break;
+            case "fullHouse":
+                score = 25;
+                break;
+            case "carre":
+                // Le score est la somme des 4 dés identiques
+                for (int i = 1; i <= 6; i++) {
+                    if (Collections.frequency(des, i) == 4) {
+                        score = i * 4;
+                        break;
+                    }
+                }
+                break;
+            case "brelan":
+                // Le score est la somme des 3 dés identiques
+                for (int i = 1; i <= 6; i++) {
+                    if (Collections.frequency(des, i) == 3) {
+                        score = i * 3;
+                        break;
+                    }
+                }
+                break;
+            case "total1":
+            case "total2":
+            case "total3":
+            case "total4":
+            case "total5":
+            case "total6":
+                int num = Integer.parseInt(categorieChoisie.substring(5));
+                score = Collections.frequency(des, num) * num;
+                break;
+            case "chance":
+                for (int de : des) {
+                    score += de;
+                }
+                break;
+            default:
+                throw new IllegalArgumentException("Catégorie inconnue : " + categorieChoisie);
+        }
+        return score;
+    }
+
 
 }
 
