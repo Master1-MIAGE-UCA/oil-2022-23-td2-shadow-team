@@ -27,13 +27,14 @@ public class IJoueur {
 
 
 
+    public String getTableauScore() {
 
-    /*
-    public Coup jouer(EtatDuJeu etat) {
-        Coup coup = new Coup("lancer", this);
-        coup.lancer();
-        return coup;
+        return "TableauScore";
+    }
+    public int getScore() {
+
+        return 0;
     }
 
-     */
+
 }

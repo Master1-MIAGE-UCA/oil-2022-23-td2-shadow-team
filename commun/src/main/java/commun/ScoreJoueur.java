@@ -110,6 +110,8 @@ public class ScoreJoueur {
         return categoriesNonUtilisees;
     }
 
+
+    // methode pour la calculer de score
     public int calculerScorePourCategorie(String categorieChoisie, List<Integer> des) {
         int score = 0;
         switch (categorieChoisie) {

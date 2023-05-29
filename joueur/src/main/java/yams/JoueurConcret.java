@@ -19,6 +19,7 @@ public class JoueurConcret extends IJoueur {
 
 
     public JoueurConcret() {
+
         setName("sans nom");
         this.scores = new ScoreJoueur(); // Initialiser le score pour chaque joueur
 
@@ -47,6 +48,10 @@ public class JoueurConcret extends IJoueur {
         return this.scores;
     }
 
+    public String getTableauScore() {
+
+        return this.scores.affichagetableauScore();
+    }
 
 
     public Coup jouer(EtatDuJeu etat) {
@@ -77,6 +82,7 @@ public class JoueurConcret extends IJoueur {
             //int score = calculerScorePourCategorie(categorieChoisie, des);
             // Sélectionne une catégorie aléatoirement parmi les catégories non utilisées
             List<String>   categoriesNonUtilisees = this.scores.getCategoriesNonUtilisees();
+
             int indexAleatoire = new Random().nextInt(categoriesNonUtilisees.size());
             String categorieChoisie = categoriesNonUtilisees.get(indexAleatoire);
             this.scores.setScoreCategorie(categorieChoisie, 0);
