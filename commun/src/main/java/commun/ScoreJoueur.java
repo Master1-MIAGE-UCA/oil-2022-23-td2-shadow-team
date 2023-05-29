@@ -15,7 +15,7 @@ public class ScoreJoueur {
         this.totalScore = 0;
         this.categoriesScore = new HashMap<>();
         this.categoriesUsed = new HashMap<>();
-        String[] categories = {"total1", "total2", "total3", "total4", "total5", "total6", "brelan", "carre", "fullHouse", "grandeSuite", "yams", "chance"};
+        String[] categories = {"total1", "total2", "total3", "total4", "total5", "total6", "brelan", "carre", "fullHouse","petiteSuite","grandeSuite","yams", "chance"};
         for (String categorie : categories) {
             categoriesScore.put(categorie, 0);
             categoriesUsed.put(categorie, false);
@@ -71,11 +71,11 @@ public class ScoreJoueur {
         StringBuilder sb = new StringBuilder();
 
         // Ligne d'en-tête
-        String headerFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
-        sb.append(String.format(headerFormat, "total1", "total2", "total3", "total4", "total5", "total6", "brelan", "carre", "fullHouse", "grandeSuite", "yams", "chance"));
+        String headerFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
+        sb.append(String.format(headerFormat, "total1", "total2", "total3", "total4", "total5", "total6", "brelan", "carre", "fullHouse","petiteSuite","grandeSuite", "yams", "chance"));
 
         // Ligne de score
-        String scoreFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
+        String scoreFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
         sb.append(String.format(scoreFormat,
                 formatScore("total1"),
                 formatScore("total2"),
@@ -86,6 +86,7 @@ public class ScoreJoueur {
                 formatScore("brelan"),
                 formatScore("carre"),
                 formatScore("fullHouse"),
+                formatScore("petiteSuite"),
                 formatScore("grandeSuite"),
                 formatScore("yams"),
                 formatScore("chance")

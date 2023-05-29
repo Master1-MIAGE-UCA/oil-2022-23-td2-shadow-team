@@ -63,6 +63,8 @@ public class Coup {
     }
 
     public void relancer(List<Integer> listeARelancer) {
+        System.out.println("je relance");
+
         for (int i = 0; i < des.size(); i++) {
             if (listeARelancer.get(i) == 1) {
                 int chiffre = (int) (Math.random() * 6) + 1; // Générer un nouveau chiffre aléatoire entre 1 et 6
