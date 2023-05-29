@@ -64,5 +64,43 @@ public class ScoreJoueur {
         return this.categoriesUsed;
     }
 
+
+
+    //deux methode pour l'affichage de tableau de score
+    public String affichagetableauScore() {
+        StringBuilder sb = new StringBuilder();
+
+        // Ligne d'en-tête
+        String headerFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
+        sb.append(String.format(headerFormat, "total1", "total2", "total3", "total4", "total5", "total6", "brelan", "carre", "fullHouse", "grandeSuite", "yams", "chance"));
+
+        // Ligne de score
+        String scoreFormat = "|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|%-10s|\n";
+        sb.append(String.format(scoreFormat,
+                formatScore("total1"),
+                formatScore("total2"),
+                formatScore("total3"),
+                formatScore("total4"),
+                formatScore("total5"),
+                formatScore("total6"),
+                formatScore("brelan"),
+                formatScore("carre"),
+                formatScore("fullHouse"),
+                formatScore("grandeSuite"),
+                formatScore("yams"),
+                formatScore("chance")
+        ));
+
+        return sb.toString();
+    }
+
+    private String formatScore(String categorie) {
+        if (categoriesUsed.get(categorie)) {
+            return String.valueOf(categoriesScore.get(categorie));
+        } else {
+            return "X";
+        }
+    }
+
 }
 

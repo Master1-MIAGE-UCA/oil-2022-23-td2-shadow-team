@@ -70,11 +70,11 @@ public class JoueurConcret extends IJoueur {
         if (MesChoixDisponibles.size() == 0)
         {
 
+
         }
         else {
 
         }
-
 
         return coup;
     }
