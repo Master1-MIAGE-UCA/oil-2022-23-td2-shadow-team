@@ -1,6 +1,8 @@
 package commun;
 
 
+import org.springframework.http.MediaType;
+
 import java.util.Map;
 import java.util.Random;
 
@@ -24,17 +26,12 @@ public class IJoueur {
         System.out.println(getName()+"> je joue "+val);
         return new Coup("valeur aléatoire "+val, this);
     }
-
-
-
-    public String getTableauScore() {
-
-        return "TableauScore";
+    public ScoreJoueur getvariableScore() {
+        return null;
     }
-    public int getScore() {
 
-        return 0;
-    }
+
+
 
 
 }

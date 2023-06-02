@@ -4,6 +4,7 @@ package partie;
 import commun.Coup;
 import commun.EtatDuJeu;
 import commun.IJoueur;
+import commun.ScoreJoueur;
 import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.ArrayList;
@@ -43,14 +44,16 @@ public class Partie {
         int maxScore = -1;
         List<IJoueur> winners = new ArrayList<>();
         for (IJoueur j : joueurs) {
+            ScoreJoueur score;
             System.out.println(j.getName() + " : ");
-            System.out.println(j.getTableauScore());
-            int score = j.getScore();
-            if (score > maxScore) {
-                maxScore = score;
+            score= j.getvariableScore();
+            System.out.println(score.affichagetableauScore());
+            int scoretotal = score.getTotalScore();
+            if (scoretotal > maxScore) {
+                maxScore = scoretotal;
                 winners.clear();
                 winners.add(j);
-            } else if (score == maxScore) {
+            } else if (scoretotal == maxScore) {
                 winners.add(j);
             }
         }

@@ -35,9 +35,9 @@ public class JoueurConcret extends IJoueur {
 
  */
 
-
-    public int getScore() {
-        return scores.getTotalScore();
+    public  ScoreJoueur getvariableScore()
+    {
+        return this.scores;
     }
 
     public void setScoreCategorie(String categorie, int score) {
@@ -46,11 +46,6 @@ public class JoueurConcret extends IJoueur {
     public ScoreJoueur getVariableScrore()
     {
         return this.scores;
-    }
-
-    public String getTableauScore() {
-
-        return this.scores.affichagetableauScore();
     }
 
 
@@ -77,7 +72,7 @@ public class JoueurConcret extends IJoueur {
             listeARelancer = coup.ListeARelancer();
         }
 
-        if (MesChoixDisponibles.size() == 0)
+        if (MesChoixDisponibles.size() <= 0)
         {
             //int score = calculerScorePourCategorie(categorieChoisie, des);
             // Sélectionne une catégorie aléatoirement parmi les catégories non utilisées
@@ -88,13 +83,13 @@ public class JoueurConcret extends IJoueur {
             this.scores.setScoreCategorie(categorieChoisie, 0);
             System.out.println(this.getName() + " a choisi la catégorie " + categorieChoisie + " avec un score de " + 0 + ".");
         }
-        else {
+        else if (MesChoixDisponibles.size() > 0){
             String categorieChoisie = MesChoixDisponibles.get(rand.nextInt(MesChoixDisponibles.size()));
             int score = this.scores.calculerScorePourCategorie(categorieChoisie, des);
             // Mettre à jour le score dans la catégorie choisie
             this.scores.setScoreCategorie(categorieChoisie, score);
             //affiche de choix
-            System.out.println(this.getName() + " a choisi la catégorie " + categorieChoisie + " avec un score de " + 10 + ".");
+            System.out.println(this.getName() + " a choisi la catégorie " + categorieChoisie + " avec un score de " + score  + ".");
         }
 
         System.out.println("Grille de Score :");

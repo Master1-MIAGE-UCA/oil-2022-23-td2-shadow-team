@@ -3,6 +3,7 @@ package yams;
 
 import commun.Coup;
 import commun.EtatDuJeu;
+import commun.ScoreJoueur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,4 +25,10 @@ public class JoueurWebController {
     public String getNom() {
         return joueurConcret.getName();
     }
+
+    @GetMapping("/score")
+    public ScoreJoueur getvariableScore() {
+        return joueurConcret.getvariableScore();
+    }
+
 }

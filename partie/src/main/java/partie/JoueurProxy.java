@@ -3,6 +3,7 @@ package partie;
 import commun.Coup;
 import commun.EtatDuJeu;
 import commun.IJoueur;
+import commun.ScoreJoueur;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
@@ -39,4 +40,13 @@ public class JoueurProxy extends IJoueur {
     public WebClient getWebClient() {
         return webClient;
     }
-}
+
+    public ScoreJoueur getvariableScore() {
+        return webClient.get().uri("/score")
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(ScoreJoueur.class)
+                .block();
+    }
+
+    }
