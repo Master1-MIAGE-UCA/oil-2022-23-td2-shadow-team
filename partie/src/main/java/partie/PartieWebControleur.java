@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
+import commun.YamsPlayer;
 
 @RestController
 public class PartieWebControleur {
@@ -37,8 +38,10 @@ public class PartieWebControleur {
             @Override
             public void run() {
                 IJoueur j = new JoueurProxy( webClientBuilder.baseUrl(url).build());
-                System.out.println("partie > ajout de "+j.getName()+" / "+url);
-                partie.addJoueur(j);
+                YamsPlayer player = new PlayerProxy(webClientBuilder.baseUrl(url).build());
+                System.out.println("partie > ajout de "+player.getName()+" / "+url);
+//                partie.addJoueur(j);
+                partie.addPlayer(player);
                 synchronized (synchro) {
                     nbJoueur++;
                     synchro.notify();
@@ -64,7 +67,7 @@ public class PartieWebControleur {
                         }
                     }
                 }
-                partie.demarrer();
+                partie.demarreGame();
             }
         });
         t.start();
