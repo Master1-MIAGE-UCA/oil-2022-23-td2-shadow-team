@@ -4,6 +4,7 @@ package appariement;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class Appariement {
@@ -12,8 +13,15 @@ public class Appariement {
 
     private ArrayList<String> parties = new ArrayList<>();
     private ArrayList<String> joueurs = new ArrayList<>();
+    private final ArrayList<String> players = new ArrayList<>();
 
     public Appariement() {
+    }
+
+    public String aadPlayer(String urlPlayer){
+        this.players.add(urlPlayer);
+        if (this.parties.size() > 0 ) return this.parties.get(0);
+        return "";
     }
 
     public String addJoueur(String urlJ) {
@@ -25,7 +33,7 @@ public class Appariement {
 
     public String[] addPartie(String partieUrl) {
         parties.add(partieUrl);
-        if (joueurs.size() > 0) return joueurs.toArray(new String[joueurs.size()]); // ici gestion des joueurs à améliorer
+        if (players.size() > 0) return players.toArray(new String[players.size()]); // ici gestion des joueurs à améliorer
         // ne pas renvoyer un joueur qui fait 2 partie en meme temps
         else return null;
     }
