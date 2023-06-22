@@ -13,28 +13,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class JoueurWebController {
-//    @Autowired
-//    JoueurConcret joueurConcret;
-//
-//    @PostMapping("/jouer")
-//    public Coup jouer(@RequestBody EtatDuJeu etatDuJeu) {
-//        System.out.println("Joueur ["+ joueurConcret.getName()+"] > on me demande de jouer sur "+ etatDuJeu);
-//        return joueurConcret.jouer(etatDuJeu);
-//    }
-//
-//    @GetMapping("/nom")
-//    public String getNom() {
-//        return joueurConcret.getName();
-//    }
 
     @Autowired
     AIStrategeService player;
 
     @PostMapping("/jouer")
     public String play(@RequestBody EtatJeuService etatJeuService) {
-        System.out.println("Joueur ["+ player.getName()+"] > on me demande de jouer sur "+ etatJeuService.getNombreDeTour());
+        System.out.println("Joueur [" + player.getName() + "] > on me demande de jouer sur " + etatJeuService.getNombreDeTour());
         player.play(etatJeuService);
-        return "Player "+player.getName()+" is playing";
+        return "Player " + player.getName() + " is playing";
     }
 
     @GetMapping("/nom")

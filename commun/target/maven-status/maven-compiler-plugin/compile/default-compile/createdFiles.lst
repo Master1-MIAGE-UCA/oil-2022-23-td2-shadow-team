@@ -1,4 +1,11 @@
-commun/Coup.class
-commun/Calculator.class
-commun/EtatDuJeu.class
-commun/IJoueur.class
+commun\FeuilleYams.class
+commun\constants\Score.class
+commun\constants\TypeCombinaison.class
+commun\Coup.class
+commun\EtatJeuService.class
+commun\Calculator.class
+commun\IJoueur.class
+commun\CombinaisonService$1.class
+commun\EtatDuJeu.class
+commun\YamsPlayer.class
+commun\CombinaisonService.class

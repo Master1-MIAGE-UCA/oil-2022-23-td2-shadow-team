@@ -28,12 +28,12 @@ public class JoueurApplication {
     }
 
     @Bean
-    public CommandLineRunner scriptLancement(JoueurConcret joueur, WebClient.Builder builder) {
+    public CommandLineRunner scriptLancement(AIStrategeService aiStrategeService, WebClient.Builder builder) {
         return args -> {
             System.out.println(args.length);
             String name = "nom par defaut";
-            if (args.length > 0) name = args[0]+" "+rand.nextInt(1000);
-            joueur.setName(name);
+            if (args.length > 0) name = args[0];
+            aiStrategeService.setName(name);
             if (args.length > 1) {
                 // args[1] c'est l'uril d'appariement, en version courte ici pour simplifier la ligne de commande
                 String urlApp = args[1];
