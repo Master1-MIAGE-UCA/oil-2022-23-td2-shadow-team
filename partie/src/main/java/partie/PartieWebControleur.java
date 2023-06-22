@@ -1,7 +1,6 @@
 package partie;
 
 
-import commun.IJoueur;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,10 +36,8 @@ public class PartieWebControleur {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
-                IJoueur j = new JoueurProxy( webClientBuilder.baseUrl(url).build());
                 YamsPlayer player = new PlayerProxy(webClientBuilder.baseUrl(url).build());
                 System.out.println("partie > ajout de "+player.getName()+" / "+url);
-//                partie.addJoueur(j);
                 partie.addPlayer(player);
                 synchronized (synchro) {
                     nbJoueur++;
