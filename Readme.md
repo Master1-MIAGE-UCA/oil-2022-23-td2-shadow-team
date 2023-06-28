@@ -22,7 +22,7 @@ Pour lancer manuellement en local, suivez les étapes ci-dessous:
     mvn clean install
     ```
 
-2. Lancez les différents composants de l'application avec les commandes suivantes :
+2. Lancez les différents composants de l'application avec mvn utilisez les commandes suivantes :
     ```
     mvn exec:java -pl appariement
     mvn exec:java -pl partie -Dserver.port=8090 -Dexec.args="http://localhost:8080/"

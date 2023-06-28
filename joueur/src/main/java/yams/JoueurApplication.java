@@ -47,7 +47,7 @@ public class JoueurApplication {
                         .retrieve().bodyToMono(String.class)
                         .block();
 
-                if ((urlPartie != null) && (urlPartie != "")) {
+                if ((urlPartie != null) && (!urlPartie.equals(""))) {
                     System.out.println(name+"> je dois me signaler");
                     WebClient clientPartie = builder.baseUrl(urlPartie).build();
                     clientPartie.post().uri("/rechercherJoueur")

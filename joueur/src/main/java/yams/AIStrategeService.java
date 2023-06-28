@@ -1,9 +1,6 @@
 package yams;
 
-import commun.CombinaisonService;
-import commun.EtatJeuService;
-import commun.FeuilleYams;
-import commun.YamsPlayer;
+import commun.*;
 import commun.constants.TypeCombinaison;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +14,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class AIStrategeService extends YamsPlayer {
-    private FeuilleYams feuilleYams;
+    private CaseYams caseYams;
 
     private List<CombinaisonService> combinaisonPossibles = new ArrayList<>();
     private final SecureRandom random = new SecureRandom();
@@ -27,7 +24,7 @@ public class AIStrategeService extends YamsPlayer {
     private List<Integer> des = new ArrayList<>();
 
     private List<Integer> desARelancer = new ArrayList<>();
-    private Map<TypeCombinaison, FeuilleYams> feuilleYamsAR = new HashMap<TypeCombinaison, FeuilleYams>();
+    private Map<TypeCombinaison, CaseYams> caseYamsAR = new HashMap<TypeCombinaison, CaseYams>();
     private int nombreDeLance = 0;
 
     public AIStrategeService() {
@@ -80,26 +77,26 @@ public class AIStrategeService extends YamsPlayer {
         this.setDesARelancer(new ArrayList<>());
     }
 
-    public FeuilleYams getFeuilleYams() {
-        return feuilleYams;
+    public CaseYams getcaseYams() {
+        return caseYams;
     }
 
-    public void setFeuilleYams(FeuilleYams feuilleYams) {
-        this.feuilleYams = feuilleYams;
+    public void setcaseYams(CaseYams caseYams) {
+        this.caseYams = caseYams;
     }
 
     @Override
-    public Map<TypeCombinaison, FeuilleYams> getFeuilleYamsAR() {
-        return feuilleYamsAR;
+    public Map<TypeCombinaison, CaseYams> getCaseYamsAR() {
+        return caseYamsAR;
     }
 
-    public void setFeuilleYamsAR(Map<TypeCombinaison, FeuilleYams> feuilleYamsAR) {
-        this.feuilleYamsAR = feuilleYamsAR;
+    public void setcaseYamsAR(Map<TypeCombinaison, CaseYams> caseYamsAR) {
+        this.caseYamsAR = caseYamsAR;
     }
 
     public boolean estFeuilleRemplie() {
-        for (Map.Entry<TypeCombinaison, FeuilleYams> feuilleYamsEntry : this.feuilleYamsAR.entrySet()) {
-            if (!feuilleYamsEntry.getValue().estCaseScoreBarre() || feuilleYamsEntry.getValue().getScore() == 0) {
+        for (Map.Entry<TypeCombinaison, CaseYams> caseYamsEntry : this.caseYamsAR.entrySet()) {
+            if (!caseYamsEntry.getValue().estCaseScoreBarre() || caseYamsEntry.getValue().getScore() == 0) {
                 return false;
             }
         }
@@ -108,8 +105,8 @@ public class AIStrategeService extends YamsPlayer {
     }
 
     public boolean estCetteCombinaisonRealisee() {
-        return this.combinaisonChoisie != null && (this.getFeuilleYamsAR().get(this.combinaisonChoisie.getTypeCombinaison()).getScore() != 0
-                || this.getFeuilleYamsAR().get(this.combinaisonChoisie.getTypeCombinaison()).estCaseScoreBarre());
+        return this.combinaisonChoisie != null && (this.getCaseYamsAR().get(this.combinaisonChoisie.getTypeCombinaison()).getScore() != 0
+                || this.getCaseYamsAR().get(this.combinaisonChoisie.getTypeCombinaison()).estCaseScoreBarre());
     }
 
     public int getNombreDeLance() {
@@ -128,18 +125,18 @@ public class AIStrategeService extends YamsPlayer {
         return this.nombreDeLance <= 0;
     }
 
-    public void barrerCaseFeuilleYams() {
-        FeuilleYams feuilleCaseBarree = new FeuilleYams();
-        feuilleCaseBarree.setTypeCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
-        feuilleCaseBarree.setEstCaseScoreBarre(true);
-        this.feuilleYamsAR.put(this.getCombinaisonChoisie().getTypeCombinaison(), feuilleCaseBarree);
+    public void barrerCasecaseYams() {
+        CaseYams CaseBarree = new CaseYams();
+        CaseBarree.setTypeCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
+        CaseBarree.setEstCaseScoreBarre(true);
+        this.caseYamsAR.put(this.getCombinaisonChoisie().getTypeCombinaison(), CaseBarree);
     }
 
-    public Map<TypeCombinaison, FeuilleYams> combinaisonFeuilleYamsPossibles() {
-        return this.getFeuilleYamsAR()
+    public Map<TypeCombinaison, CaseYams> combinaisoncaseYamsPossibles() {
+        return this.getCaseYamsAR()
                 .entrySet()
                 .stream()
-                .filter(typeCombinaisonFeuilleYamsEntry -> !typeCombinaisonFeuilleYamsEntry.getValue().estCaseScoreBarre() && typeCombinaisonFeuilleYamsEntry.getValue().getScore() == 0)
+                .filter(typeCombinaisoncaseYamsEntry -> !typeCombinaisoncaseYamsEntry.getValue().estCaseScoreBarre() && typeCombinaisoncaseYamsEntry.getValue().getScore() == 0)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
@@ -147,7 +144,7 @@ public class AIStrategeService extends YamsPlayer {
         int maxScore = 0;
         CombinaisonService combinaisonSelectionnee = null, combinaisonService = null;
 
-        List<TypeCombinaison> typeCombinaisons = this.combinaisonFeuilleYamsPossibles().keySet().stream().toList();
+        List<TypeCombinaison> typeCombinaisons = this.combinaisoncaseYamsPossibles().keySet().stream().toList();
         for (TypeCombinaison combinaison : typeCombinaisons) {
             combinaisonService = new CombinaisonService(combinaison);
             combinaisonService.calculeScore(this.getDes());
@@ -165,13 +162,13 @@ public class AIStrategeService extends YamsPlayer {
     }
 
     public void choisirCombinaisonABarrer() {
-        if (this.getFeuilleYamsAR() == null) {
+        if (this.getCaseYamsAR() == null) {
             return;
         }
-        Map<TypeCombinaison, FeuilleYams> combinaisonFeuilleYamsABarrers = this.combinaisonFeuilleYamsPossibles();
-        List<TypeCombinaison> typeCombinaisons = combinaisonFeuilleYamsABarrers.keySet().stream().toList();
+        Map<TypeCombinaison, CaseYams> combinaisoncaseYamsABarrers = this.combinaisoncaseYamsPossibles();
+        List<TypeCombinaison> typeCombinaisons = combinaisoncaseYamsABarrers.keySet().stream().toList();
         this.identifierCombinaisonABarrer(typeCombinaisons);
-        this.barrerCaseFeuilleYams();
+        this.barrerCasecaseYams();
 
     }
 
@@ -218,21 +215,21 @@ public class AIStrategeService extends YamsPlayer {
     public void initFeuilleARemplir() {
         for (CombinaisonService combinaisonService : this.getCombinaisonPossibles()) {
             System.out.println(combinaisonService.getTypeCombinaison());
-            feuilleYams = new FeuilleYams();
-            this.feuilleYams.setTypeCombinaison(combinaisonService.getTypeCombinaison());
-            this.feuilleYams.setScore(0);
-            this.feuilleYams.setEstCaseScoreBarre(false);
-            this.getFeuilleYamsAR().put(this.feuilleYams.getTypeCombinaison(), feuilleYams);
+            caseYams = new CaseYams();
+            this.caseYams.setTypeCombinaison(combinaisonService.getTypeCombinaison());
+            this.caseYams.setScore(0);
+            this.caseYams.setEstCaseScoreBarre(false);
+            this.getCaseYamsAR().put(this.caseYams.getTypeCombinaison(), caseYams);
         }
     }
 
 
-    public void remplirFeuilleYams() {
-        this.feuilleYams = new FeuilleYams();
-        feuilleYams.setScore(this.getCombinaisonChoisie().getScore());
-        feuilleYams.setTypeCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
+    public void remplircaseYams() {
+        this.caseYams = new CaseYams();
+        caseYams.setScore(this.getCombinaisonChoisie().getScore());
+        caseYams.setTypeCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
         System.out.println(this.getName() + " a joué la combinaison " + this.getCombinaisonChoisie().getTypeCombinaison() + " pour " + this.getCombinaisonChoisie().getScore() + " points");
-        getFeuilleYamsAR().put(feuilleYams.getTypeCombinaison(), feuilleYams);
+        this.getCaseYamsAR().put(caseYams.getTypeCombinaison(), caseYams);
     }
 
 
@@ -246,33 +243,29 @@ public class AIStrategeService extends YamsPlayer {
     }
 
     @Override
-    public String play(EtatJeuService etatJeuService) {
-        while (!estNombreDeLanceFini()) {
-            this.lanceDes();
+    public Decision play(EtatJeuService etatJeuService) {
+            this.setDes(etatJeuService.getDes());
             this.choisirCombinaison();
             if (!this.estFeuilleRemplie() && !this.estCetteCombinaisonRealisee()) {
-                this.remplirFeuilleYams();
+                this.remplircaseYams();
             } else if (getNombreDeLance() == 1 && estCetteCombinaisonRealisee()) {
                 choisirCombinaisonABarrer();
             }
-            decrementNombreDeLance();
-            reinitieDes();
-        }
-        setNombreDeLance(3);
-        affichageDesStatistiques();
-        return "Etat du jeu est au tour: " + etatJeuService.getNombreDeTour();
+            Decision decision = new Decision();
+            decision.setCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
+        return decision;
     }
 
     public void affichageDesStatistiques() {
         System.out.println("=================================================");
         System.out.println("Feuille Yams du joueur " + this.getName());
         System.out.println("=================================================");
-        for (Map.Entry<commun.constants.TypeCombinaison, FeuilleYams> entry : this.getFeuilleYamsAR().entrySet()) {
+        for (Map.Entry<commun.constants.TypeCombinaison, CaseYams> entry : this.getCaseYamsAR().entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue().getScore() + " " + entry.getValue().estCaseScoreBarre());
         }
 //        Map<String, Integer> winners = new HashMap<>();
         List<Integer> scores = new ArrayList<>();
-        for (Map.Entry<TypeCombinaison, FeuilleYams> entry : this.getFeuilleYamsAR().entrySet()) {
+        for (Map.Entry<TypeCombinaison, CaseYams> entry : this.getCaseYamsAR().entrySet()) {
             scores.add(entry.getValue().getScore());
         }
         System.out.println("=================================================");

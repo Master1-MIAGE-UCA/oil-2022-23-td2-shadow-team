@@ -3,7 +3,7 @@ package commun;
 import commun.constants.TypeCombinaison;
 import org.springframework.util.CollectionUtils;
 import java.util.*;
-public class CombinaisonService extends FeuilleYams{
+public class CombinaisonService extends CaseYams{
     public CombinaisonService(TypeCombinaison typeCombinaison){
         this.setTypeCombinaison(typeCombinaison);
     }

@@ -1,10 +1,6 @@
 package yams;
-
-
-import commun.Coup;
-import commun.EtatDuJeu;
+import commun.Decision;
 import commun.EtatJeuService;
-import commun.YamsPlayer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +14,9 @@ public class JoueurWebController {
     AIStrategeService player;
 
     @PostMapping("/jouer")
-    public String play(@RequestBody EtatJeuService etatJeuService) {
+    public Decision play(@RequestBody EtatJeuService etatJeuService) {
         System.out.println("Joueur [" + player.getName() + "] > on me demande de jouer sur " + etatJeuService.getNombreDeTour());
-        player.play(etatJeuService);
-        return "Player " + player.getName() + " is playing";
+        return player.play(etatJeuService);
     }
 
     @GetMapping("/nom")

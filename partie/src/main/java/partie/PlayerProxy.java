@@ -1,12 +1,8 @@
 package partie;
 
-import commun.Coup;
-import commun.EtatDuJeu;
-import commun.EtatJeuService;
+import commun.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
-import commun.YamsPlayer;
-import reactor.core.publisher.Mono;
 
 public class PlayerProxy extends YamsPlayer {
     private WebClient webClient;
@@ -19,16 +15,6 @@ public class PlayerProxy extends YamsPlayer {
                 .block();
         System.out.println("Received name "+name);
         this.setName(name);
-    }
-
-    @Override
-    public String play(EtatJeuService etatJeuService){
-        return webClient.post().uri("/jouer")
-                .body(Mono.just(etatJeuService), EtatJeuService.class) // on envoie le corps/parametre de la requete sous forme d'objet EtatDuJeu
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
     }
 
     public WebClient getWebClient() {
