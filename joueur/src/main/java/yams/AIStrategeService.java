@@ -29,21 +29,11 @@ public class AIStrategeService extends YamsPlayer {
 
     public AIStrategeService() {
         this.init();
-        this.initFeuilleARemplir();
     }
 
 
     public void choisirDeAGarder() {
 
-    }
-
-    public void lanceDes() {
-        System.out.println("Le joueur : " + this.getName() + " lance les dés");
-        for (int i = 1; i <= 5; i++) {
-            this.des.add(this.random.nextInt(6) + 1);
-        }
-        this.des.forEach(integer -> System.out.print(integer + " "));
-        System.out.println();
     }
 
     public List<Integer> getDes() {
@@ -113,23 +103,8 @@ public class AIStrategeService extends YamsPlayer {
         return nombreDeLance;
     }
 
-    public void setNombreDeLance(int nombreDeLance) {
+    private void setNombreDeLance(int nombreDeLance){
         this.nombreDeLance = nombreDeLance;
-    }
-
-    public void decrementNombreDeLance() {
-        this.nombreDeLance -= 1;
-    }
-
-    public boolean estNombreDeLanceFini() {
-        return this.nombreDeLance <= 0;
-    }
-
-    public void barrerCasecaseYams() {
-        CaseYams CaseBarree = new CaseYams();
-        CaseBarree.setTypeCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
-        CaseBarree.setEstCaseScoreBarre(true);
-        this.caseYamsAR.put(this.getCombinaisonChoisie().getTypeCombinaison(), CaseBarree);
     }
 
     public Map<TypeCombinaison, CaseYams> combinaisoncaseYamsPossibles() {
@@ -157,7 +132,7 @@ public class AIStrategeService extends YamsPlayer {
         if (combinaisonSelectionnee == null) {
             return;
         }
-        System.out.print("Le joueur " + getName() + " choisit une combinaison "+combinaisonSelectionnee.getTypeCombinaison());
+        System.out.print(this.getName() + " j'ai choisit la combinaison "+combinaisonSelectionnee.getTypeCombinaison());
         this.setCombinaisonChoisie(combinaisonSelectionnee);
     }
 
@@ -168,7 +143,6 @@ public class AIStrategeService extends YamsPlayer {
         Map<TypeCombinaison, CaseYams> combinaisoncaseYamsABarrers = this.combinaisoncaseYamsPossibles();
         List<TypeCombinaison> typeCombinaisons = combinaisoncaseYamsABarrers.keySet().stream().toList();
         this.identifierCombinaisonABarrer(typeCombinaisons);
-        this.barrerCasecaseYams();
 
     }
 
@@ -245,13 +219,16 @@ public class AIStrategeService extends YamsPlayer {
     @Override
     public Decision play(EtatJeuService etatJeuService) {
             this.setDes(etatJeuService.getDes());
+            this.caseYamsAR = etatJeuService.getFeuilleYams();
+            this.setNombreDeLance(etatJeuService.getNombreRelance());
+            Decision decision = new Decision();
             this.choisirCombinaison();
             if (!this.estFeuilleRemplie() && !this.estCetteCombinaisonRealisee()) {
-                this.remplircaseYams();
-            } else if (getNombreDeLance() == 1 && estCetteCombinaisonRealisee()) {
-                choisirCombinaisonABarrer();
+                decision.setEstCombinaisonAbarrer(false);
+            } else if (this.getNombreDeLance() == 3 && this.estCetteCombinaisonRealisee()) {
+                this.choisirCombinaisonABarrer();
+                decision.setEstCombinaisonAbarrer(true);
             }
-            Decision decision = new Decision();
             decision.setCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
         return decision;
     }

@@ -11,6 +11,8 @@ public class Decision {
     private List<Integer> desARelancer =  new ArrayList<>();
     private List<Integer> desAGarder = new ArrayList<>();
 
+    private Boolean estCombinaisonAbarrer;
+
     public Decision() {
     }
 
@@ -22,7 +24,7 @@ public class Decision {
         this.combinaison = combinaison;
     }
 
-    public Boolean getEstOptionRelance() {
+    public Boolean estOptionRelance() {
         return estOptionRelance;
     }
 
@@ -44,5 +46,13 @@ public class Decision {
 
     public void setDesAGarder(List<Integer> desAGarder) {
         this.desAGarder = desAGarder;
+    }
+
+    public Boolean estCombinaisonAbarrer() {
+        return estCombinaisonAbarrer;
+    }
+
+    public void setEstCombinaisonAbarrer(Boolean estCombinaisonAbarrer) {
+        this.estCombinaisonAbarrer = estCombinaisonAbarrer;
     }
 }

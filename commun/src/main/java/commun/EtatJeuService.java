@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class EtatJeuService {
     private int nombreDeTour = 1;
+    private int nombreRelance = 0;
     private Map<TypeCombinaison, CaseYams> feuilleYams = new HashMap<>();
     private List<Integer> des = new ArrayList<>();
     public int getNombreDeTour() {
@@ -37,5 +38,12 @@ public class EtatJeuService {
     }
     public void setDes(List<Integer> des){
         this.des = des;
+    }
+
+    public int getNombreRelance() {
+        return this.nombreRelance;
+    }
+    public void setNombreRelance(int nombreRelance){
+        this.nombreRelance = nombreRelance;
     }
 }
