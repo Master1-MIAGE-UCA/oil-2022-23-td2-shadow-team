@@ -14,7 +14,7 @@ import java.util.*;
 @Component
 public class Partie {
     private final EtatJeuService etatJeuService = new EtatJeuService();
-    ArrayList<YamsPlayer> players = new ArrayList<>();
+    LinkedList<YamsPlayer> players = new LinkedList<>();
     LinkedList<Map<TypeCombinaison, CaseYams>> feuilleDesJoueurs = new LinkedList<>();
     private final SecureRandom random = new SecureRandom();
     private List<Integer> des = new ArrayList<>();
@@ -32,13 +32,15 @@ public class Partie {
 
     public void demarreGame() {
         this.initFeuilleYams();
+        System.out.println("Nombre joueur "+this.players.size());
         while (!this.etatJeuService.estNombreDeTourFini()) {
-            this.lanceDes(new ArrayList<>());
-            this.etatJeuService.setDes(this.des);
             if (this.players != null && !CollectionUtils.isEmpty(this.players)) {
 
-                for (YamsPlayer player : this.players) {
-
+                for (int i = 0 ; i < this.players.size(); i++) {
+                    this.lanceDes(new ArrayList<>());
+                    this.etatJeuService.setDes(this.des);
+                    this.etatJeuService.setFeuilleYams(this.feuilleDesJoueurs.get(i));
+                    this.remplirFeuillePlayer(this.players.get(i).play(etatJeuService), i);
                 }
             }
             this.etatJeuService.incrementeNombreDeTour();
@@ -99,6 +101,7 @@ public class Partie {
 
     public void lanceDes(List<Integer> des) {
         int seuil = des != null && des.size() > 0 ? des.size(): 5;
+        this.des = new ArrayList<>();
         for (int i = 1; i <= seuil; i++) {
             this.des.add(this.random.nextInt(6) + 1);
         }
@@ -138,7 +141,7 @@ public class Partie {
             caseYams.setTypeCombinaison(decision.getCombinaison());
         }
         this.feuilleDesJoueurs.get(indexPlayer).put(caseYams.getTypeCombinaison(),caseYams);
-        System.out.println("Le Joueur "+this.players.get(indexPlayer).getName()+" a choisit la combinaison +"+caseYams.getTypeCombinaison()+" et marque "+caseYams.getScore()+" points");
+        System.out.println("Le Joueur "+this.players.get(indexPlayer).getName()+" a choisit la combinaison "+caseYams.getTypeCombinaison()+" et marque "+caseYams.getScore()+" points");
     }
 
     public List<Integer> getDes() {

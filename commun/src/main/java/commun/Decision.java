@@ -11,7 +11,7 @@ public class Decision {
     private List<Integer> desARelancer =  new ArrayList<>();
     private List<Integer> desAGarder = new ArrayList<>();
 
-    private Boolean estCombinaisonAbarrer;
+    private Boolean estCombinaisonAbarrer = false;
 
     public Decision() {
     }

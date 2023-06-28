@@ -26,7 +26,6 @@ public class CombinaisonService{
             case TOTAL_5 -> this.obtenirOccurrence(des, 5) * 5;
             case TOTAL_6 -> this.obtenirOccurrence(des, 6) * 6;
         };
-        System.out.println(this.getTypeCombinaison() +": "+score);
         this.setScore(score);
     }
 

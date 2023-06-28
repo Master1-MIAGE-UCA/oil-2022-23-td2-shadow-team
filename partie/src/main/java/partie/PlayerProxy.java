@@ -3,6 +3,7 @@ package partie;
 import commun.*;
 import org.springframework.http.MediaType;
 import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
 
 public class PlayerProxy extends YamsPlayer {
     private WebClient webClient;
@@ -15,6 +16,16 @@ public class PlayerProxy extends YamsPlayer {
                 .block();
         System.out.println("Received name "+name);
         this.setName(name);
+    }
+
+    @Override
+    public Decision play(EtatJeuService etatJeuService){
+        return webClient.post().uri("/jouer")
+                .body(Mono.just(etatJeuService), EtatJeuService.class) // on envoie le corps/parametre de la requete sous forme d'objet EtatDuJeu
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .bodyToMono(Decision.class)
+                .block();
     }
 
     public WebClient getWebClient() {
