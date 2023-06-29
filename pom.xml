@@ -19,9 +19,9 @@
     <modules>
         <module>commun</module>
         <module>appariement</module>
-        <module>hebergeur</module>
         <module>partie</module>
         <module>proba</module>
+        <module>joueur</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -48,6 +48,7 @@
                     <source>17</source> <!-- éventuellement à changer : version de java -->
                     <target>17</target> <!-- éventuellement à changer : version de java -->
                 </configuration>
+
             </plugin>
 
 
@@ -91,7 +92,14 @@
 
             </plugin>
 
-
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version> <!-- Mettez la version que vous utilisez -->
+                <configuration>
+                    <argLine>-Xshare:off</argLine>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -119,6 +127,11 @@
             <artifactId>mockito-core</artifactId>
             <version>5.2.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+
 
 
     </dependencies>
