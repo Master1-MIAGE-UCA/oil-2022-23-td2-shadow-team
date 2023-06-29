@@ -33,7 +33,7 @@
       <module name="service1" options="-parameters" />
       <module name="service2" options="-parameters" />
       <module name="service3" options="-parameters" />
-      <module name="yams" options="-parameters" />
+      <module name="yams" options="" />
     </option>
   </component>
 </project>
