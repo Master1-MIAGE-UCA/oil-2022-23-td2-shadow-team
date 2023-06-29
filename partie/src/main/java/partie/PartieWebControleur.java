@@ -27,12 +27,11 @@ public class PartieWebControleur {
     }
 
     @PostMapping("/rechercherJoueur")
-    public void jouer(@RequestBody String url) {
+    public void rechercheJoueur(@RequestBody String url) {
         System.out.println("partie> recherche de  "+ url);
         synchronized (synchro) {
             nbRequetes++;
         }
-        // java.lang.IllegalStateException: block()/blockFirst()/blockLast() are blocking, which is not supported in thread reactor-http-nio-3
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {

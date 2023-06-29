@@ -3,9 +3,11 @@ package commun;
 import commun.constants.TypeCombinaison;
 import org.springframework.util.CollectionUtils;
 import java.util.*;
-public class CombinaisonService extends FeuilleYams{
+public class CombinaisonService{
+    private TypeCombinaison typeCombinaison;
+    private Integer score;
     public CombinaisonService(TypeCombinaison typeCombinaison){
-        this.setTypeCombinaison(typeCombinaison);
+        this.typeCombinaison = typeCombinaison;
     }
 
     public void calculeScore(List<Integer> des){
@@ -24,7 +26,6 @@ public class CombinaisonService extends FeuilleYams{
             case TOTAL_5 -> this.obtenirOccurrence(des, 5) * 5;
             case TOTAL_6 -> this.obtenirOccurrence(des, 6) * 6;
         };
-        System.out.println(this.getTypeCombinaison() +": "+score);
         this.setScore(score);
     }
 
@@ -97,5 +98,21 @@ public class CombinaisonService extends FeuilleYams{
             return 0;
         }
         return Collections.frequency(des, cible);
+    }
+
+    public TypeCombinaison getTypeCombinaison() {
+        return typeCombinaison;
+    }
+
+    public void setTypeCombinaison(TypeCombinaison typeCombinaison) {
+        this.typeCombinaison = typeCombinaison;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 }

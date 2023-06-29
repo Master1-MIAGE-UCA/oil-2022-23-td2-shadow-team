@@ -35,7 +35,7 @@ public class PartieApplication {
                         .retrieve().bodyToMono(String[].class).block();
 
                 if ((urJoueurs != null) && (urJoueurs.length > 0)) {
-                    System.out.println("partie > je dois me signaler auprès de joueurs");
+                    System.out.println("partie > je me signale auprès de joueurs");
                 }
             }
         };

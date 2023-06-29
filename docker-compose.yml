@@ -21,6 +21,17 @@ services:
             #  ipv4_address: 172.28.0.3
         depends_on:
             - appariement
+#    proba:
+#        image: webclient:proba
+#        container_name: proba
+#        environment:
+#            - SERVER_IP=http://172.28.0.253:8080/
+#            - SERVER_PORT=8091
+#        networks:
+#            testing_net:
+#            #  ipv4_address: 172.28.0.3
+#        depends_on:
+#            - appariement
 
     michel:
         image: webclient:joueur
@@ -36,19 +47,55 @@ services:
             - partie
 
 
-    joueur2:
+    greg:
         image: webclient:joueur
         container_name: greg
         environment:
             - SERVER_IP=http://172.28.0.253:8080/
-            - NOM=G.
-            - LANCEMENT=true
+            - NOM=GREG
             - SERVER_PORT=8082
         networks:
             testing_net:
             #  ipv4_address: 172.28.0.3
         depends_on:
             - michel
+    maxime:
+        image: webclient:joueur
+        container_name: maxime
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+            - NOM=MAXIME
+            - SERVER_PORT=8083
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - greg
+    krimi:
+        image: webclient:joueur
+        container_name: krimi
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+            - NOM=KRIMI
+            - SERVER_PORT=8084
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - maxime
+    diallo:
+        image: webclient:joueur
+        container_name: diallo
+        environment:
+            - SERVER_IP=http://172.28.0.253:8080/
+            - NOM=DIALLO
+            - LANCEMENT=true
+            - SERVER_PORT=8085
+        networks:
+            testing_net:
+            #  ipv4_address: 172.28.0.3
+        depends_on:
+            - krimi
 
 
 networks:
