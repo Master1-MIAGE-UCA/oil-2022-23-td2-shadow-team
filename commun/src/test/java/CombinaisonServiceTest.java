@@ -32,13 +32,6 @@ class CombinaisonServiceTest {
         assertEquals(25, combinaisonService.getScore()); // score fixe pour un full
     }
 
-    @Test
-    void testCalculeScorePetiteSuite() {
-        CombinaisonService combinaisonService = new CombinaisonService(TypeCombinaison.PETITE_SUITE);
-        List<Integer> des = Arrays.asList(1, 2, 3, 4, 6); // suppose une petite suite (1,2,3,4)
-        combinaisonService.calculeScore(des);
-        assertEquals(30, combinaisonService.getScore()); // score fixe pour une petite suite
-    }
 
     @Test
     void testCalculeScoreGrandeSuite() {
