@@ -163,10 +163,6 @@ public class AIStrategeService extends YamsPlayer {
         return combinaisonPossibles;
     }
 
-    public void setCombinaisonPossibles(List<CombinaisonService> combinaisonPossibles) {
-        this.combinaisonPossibles = combinaisonPossibles;
-    }
-
     @Override
     public Decision play(EtatJeuService etatJeuService) {
             this.setDes(etatJeuService.getDes());
@@ -182,25 +178,6 @@ public class AIStrategeService extends YamsPlayer {
             }
             decision.setCombinaison(this.getCombinaisonChoisie().getTypeCombinaison());
         return decision;
-    }
-
-    public void affichageDesStatistiques() {
-        System.out.println("=================================================");
-        System.out.println("Feuille Yams du joueur " + this.getName());
-        System.out.println("=================================================");
-        for (Map.Entry<commun.constants.TypeCombinaison, CaseYams> entry : this.getCaseYamsAR().entrySet()) {
-            System.out.println(entry.getKey() + " " + entry.getValue().getScore() + " " + entry.getValue().estCaseScoreBarre());
-        }
-//        Map<String, Integer> winners = new HashMap<>();
-        List<Integer> scores = new ArrayList<>();
-        for (Map.Entry<TypeCombinaison, CaseYams> entry : this.getCaseYamsAR().entrySet()) {
-            scores.add(entry.getValue().getScore());
-        }
-        System.out.println("=================================================");
-
-        System.out.println(getName() + " marque " + scores.stream().mapToInt(Integer::intValue).sum() + " points dans le jeu");
-
-        System.out.println("=================================================");
     }
 
 }
