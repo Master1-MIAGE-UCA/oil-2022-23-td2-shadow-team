@@ -15,7 +15,7 @@ public class JoueurWebController {
 
     @PostMapping("/jouer")
     public Decision play(@RequestBody EtatJeuService etatJeuService) {
-        System.out.println("Joueur [" + player.getName() + "] > on me demande de jouer sur " + etatJeuService.getNombreDeTour());
+        System.out.println("Joueur [" + player.getName() + "] > on me demande de jouer au tour " + etatJeuService.getNombreDeTour());
         return player.play(etatJeuService);
     }
 
