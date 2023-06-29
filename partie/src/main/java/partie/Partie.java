@@ -40,7 +40,9 @@ public class Partie {
                     this.lanceDes(new ArrayList<>());
                     this.etatJeuService.setDes(this.des);
                     this.etatJeuService.setFeuilleYams(this.feuilleDesJoueurs.get(i));
-                    this.remplirFeuillePlayer(this.players.get(i).play(etatJeuService), i);
+                    System.out.println("Player name "+this.players.get(i).getName());
+                    Decision decision = this.players.get(i).play(etatJeuService);
+                    this.remplirFeuillePlayer(decision, i);
                 }
             }
             this.etatJeuService.incrementeNombreDeTour();

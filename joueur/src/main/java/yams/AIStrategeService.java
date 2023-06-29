@@ -106,7 +106,7 @@ public class AIStrategeService extends YamsPlayer {
         if (combinaisonSelectionnee == null) {
             return;
         }
-        System.out.println(this.getName() + " j'ai choisit la combinaison "+combinaisonSelectionnee.getTypeCombinaison());
+        System.out.println(this.getName() + "> j'ai choisit la combinaison "+combinaisonSelectionnee.getTypeCombinaison());
         this.setCombinaisonChoisie(combinaisonSelectionnee);
     }
 
